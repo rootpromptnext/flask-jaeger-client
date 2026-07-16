@@ -15,8 +15,7 @@ spec:
     spec:
       containers:
       - name: flask-jaeger
-        image: flask-jaeger-client:v1
-        imagePullPolicy: Never
+        image: rootpromptnext/flask-jaeger-client:v1
         ports:
         - containerPort: 5000
         env:
