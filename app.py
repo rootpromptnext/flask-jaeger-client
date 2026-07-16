@@ -17,7 +17,7 @@ def init_tracer(service):
     )
     return config.initialize_tracer()
 
-tracer = init_tracer("flask-jaeger-demo")
+tracer = init_tracer("flask-jaeger-client")
 opentracing.tracer = tracer
 
 @app.route("/")

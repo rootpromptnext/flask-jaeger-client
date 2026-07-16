@@ -65,29 +65,29 @@ curl http://localhost:5000/error
 Build the image
 
 ```bash
-docker build -t flask-jaeger-client:v1 .
+docker build -t flask-jaeger-client-client:v1 .
 ```
 
 Run the container
 
 ```bash
 docker run -d \
---name flask-jaeger-client \
+--name flask-jaeger-client-client \
 -p 5000:5000 \
 -e JAEGER_AGENT_HOST=<JAEGER_HOST> \
 -e JAEGER_AGENT_PORT=6831 \
-flask-jaeger-client:v1
+flask-jaeger-client-client:v1
 ```
 
 Example
 
 ```bash
 docker run -d \
---name flask-jaeger-client \
+--name flask-jaeger-client-client \
 -p 5000:5000 \
 -e JAEGER_AGENT_HOST=192.168.1.10 \
 -e JAEGER_AGENT_PORT=31616 \
-flask-jaeger-client:v1
+flask-jaeger-client-client:v1
 ```
 
 Verify
@@ -105,13 +105,13 @@ curl http://localhost:5000/hello
 Tag the image
 
 ```bash
-docker tag flask-jaeger-client:v1 rootpromptnext/flask-jaeger-client:v1
+docker tag flask-jaeger-client-client:v1 rootpromptnext/flask-jaeger-client-client:v1
 ```
 
 Push
 
 ```bash
-docker push rootpromptnext/flask-jaeger-client:v1
+docker push rootpromptnext/flask-jaeger-client-client:v1
 ```
 
 ---
@@ -161,7 +161,7 @@ http://<NODE-IP>:30686
 Select the service
 
 ```
-flask-jaeger-demo
+flask-jaeger-client-demo
 ```
 
 Click
@@ -179,9 +179,9 @@ Open any trace to view the generated spans.
 Docker
 
 ```bash
-docker stop flask-jaeger-client
+docker stop flask-jaeger-client-client
 
-docker rm flask-jaeger-client
+docker rm flask-jaeger-client-client
 ```
 
 Kubernetes

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-jaeger
+  name: flask-jaeger-client
   namespace: observability
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask-jaeger
+      app: flask-jaeger-client
   template:
     metadata:
       labels:
-        app: flask-jaeger
+        app: flask-jaeger-client
     spec:
       containers:
-      - name: flask-jaeger
-        image: rootpromptnext/flask-jaeger-client:v1
+      - name: flask-jaeger-client
+        image: rootpromptnext/flask-jaeger-client-client:v1
         ports:
         - containerPort: 5000
         env:
@@ -27,12 +27,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-jaeger
+  name: flask-jaeger-client
   namespace: observability
 spec:
   type: NodePort
   selector:
-    app: flask-jaeger
+    app: flask-jaeger-client
   ports:
   - port: 5000
     targetPort: 5000
